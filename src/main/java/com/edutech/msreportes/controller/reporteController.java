@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
-@RequestMapping("api/reportes")
+@RequestMapping("api/v1/reportes")
 public class ReporteController {
     @Autowired
     private ReporteService reporteService;
@@ -44,7 +44,7 @@ public class ReporteController {
         }
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{idReporte}")
     public ResponseEntity<Reporte> getById(@PathVariable int idReporte) {
         return new ResponseEntity<Reporte>(reporteService.findById(idReporte), HttpStatus.OK);
     }
