@@ -34,6 +34,18 @@ public class ReporteController {
         }
     }
 
+    @GetMapping("/{idReporte}")
+    public ResponseEntity<Reporte> readReporte(@PathVariable int idReporte) {
+        Reporte buscar = reporteService.findById(idReporte);
+        if(buscar != null) {
+            return new ResponseEntity<>(buscar, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+    
+    
+
     @PostMapping
     public ResponseEntity<Reporte> postReporte(@RequestBody Reporte reporte) {
         Reporte buscar = reporteService.findById(reporte.getIdReporte());
@@ -43,11 +55,5 @@ public class ReporteController {
             return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
         }
     }
-
-    @GetMapping("/{idReporte}")
-    public ResponseEntity<Reporte> getById(@PathVariable int idReporte) {
-        return new ResponseEntity<Reporte>(reporteService.findById(idReporte), HttpStatus.OK);
-    }
-    
     
 }
