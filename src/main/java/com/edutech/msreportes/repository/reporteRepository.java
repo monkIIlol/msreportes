@@ -17,5 +17,7 @@ public interface ReporteRepository extends JpaRepository<Reporte, Integer> {
     @SuppressWarnings("unchecked")
     Reporte save(Reporte reporte);
 
-    Reporte findById(int id);
+    Reporte findById(int idReporte);
+
+    void deleteById(int idReporte);
 }

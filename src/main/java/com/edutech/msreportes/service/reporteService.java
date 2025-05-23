@@ -17,11 +17,15 @@ public class ReporteService {
         return reporteRepository.findAll();
     }
 
-    public Reporte findById(int id) {
-        return reporteRepository.findById(id);
+    public Reporte findById(int idReporte) {
+        return reporteRepository.findById(idReporte);
     }
 
     public Reporte save(Reporte reporte) {
         return reporteRepository.save(reporte);
+    }
+
+    public void deleteById(int idReporte) {
+        reporteRepository.deleteById(idReporte);
     }
 }
