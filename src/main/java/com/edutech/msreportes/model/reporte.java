@@ -37,10 +37,5 @@ public class Reporte {
 
     @Column(nullable = false)
     private LocalDate fechaRep;
-
-    //@Column()
-    //private ArrayList<Usuario> listaUsuarios = new ArrayList<>();
-
-    //@Column()
-    //private ArrayList<Nota> listaNotas = new ArrayList<>();
+    
 }
