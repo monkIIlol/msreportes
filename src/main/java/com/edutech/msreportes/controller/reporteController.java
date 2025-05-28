@@ -59,15 +59,8 @@ public class ReporteController {
     
     @PutMapping("/{idReporte}")
     public ResponseEntity<Reporte> updateReporte(@PathVariable int idReporte, @RequestBody Reporte reporte) {
-        Reporte buscar = reporteService.findById(idReporte);
-        if(buscar != null) {
-            buscar.setTituloRep(reporte.getTituloRep());
-            buscar.setDescripcion(reporte.getDescripcion());
-            buscar.setTipoRep(reporte.getTipoRep());
-            buscar.setFechaRep(reporte.getFechaRep());
-
-            reporteService.save(buscar);
-            return new ResponseEntity<>(buscar, HttpStatus.OK);
+        if(reporteService.update(idReporte, reporte)) {
+            return new ResponseEntity<>(reporte, HttpStatus.OK);
         }else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

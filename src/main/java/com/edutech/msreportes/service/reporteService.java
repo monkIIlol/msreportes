@@ -28,4 +28,19 @@ public class ReporteService {
     public void deleteById(int idReporte) {
         reporteRepository.deleteById(idReporte);
     }
+
+    public boolean update(int idReporte, Reporte reporte) {
+        Reporte rep = reporteRepository.findById(idReporte);
+        if(rep != null) {
+            rep.setTituloRep(reporte.getTituloRep());
+            rep.setDescripcion(reporte.getDescripcion());
+            rep.setTipoRep(reporte.getTipoRep());
+            rep.setFechaRep(reporte.getFechaRep());
+
+            reporteRepository.save(rep);
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
